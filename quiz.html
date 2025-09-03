@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-amber-50 text-gray-900 font-sans">
+<nav class="bg-red-900 text-white px-8 py-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold">สงครามโลกครั้งที่2</h1>
+    <ul class="flex gap-6">
+      <li><a href="index.html">หน้าแรก</a></li>
+      <li><a href="timeline.html">ฝ่ายมหาอำนาจ</a></li>
+      <li><a href="kingdoms.html">ผู้นำและบุคคลสำคัญ</a></li>
+      <li><a href="heroes.html">สมรภูมิและแผนที่สงคราม</a></li>
+      <li><a href="map.html">ผลลัพธ์และผลกระทบ</a></li>
+      <li><a href="quiz.html">แบบทดสอบ</a></li>
+      <li><a href="about.html">เกี่ยวกับ</a></li>
+    </ul>
+  </nav>  
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-gray-100">
+
+    <!-- แถบสีแดงด้านบน -->
+    <header class="bg-red-800 text-white p-6 text-center">
+      <h1 class="text-3xl font-bold">แบบทดสอบความรู้สงครามโลกครั้งที่ 2</h1>
+    </header>
+
+    <!-- เนื้อหาหลัก -->
+    <main class="p-8 max-w-3xl mx-auto">
+      <form id="quizForm" class="space-y-6">
+
+        <div class="border-l-4 border-red-700 pl-4">
+          <p class="font-semibold">1: สงครามโลกครั้งที่ 2 เริ่มเมื่อปีใด?</p>
+          <label><input type="radio" name="q1" value="a"> 1937</label><br>
+          <label><input type="radio" name="q1" value="b"> 1939</label><br>
+          <label><input type="radio" name="q1" value="c"> 1941</label><br>
+          <label><input type="radio" name="q1" value="d"> 1945</label>        
+        </div>
+
+        <div class="border-l-4 border-red-700 pl-4">
+          <p class="font-semibold">2: ประเทศใดเป็นหัวหน้าฝ่ายอักษะ?</p>
+          <label><input type="radio" name="q2" value="a"> อังกฤษ</label><br>
+          <label><input type="radio" name="q2" value="b"> สหรัฐอเมริกา</label><br>
+          <label><input type="radio" name="q2" value="c"> เยอรมนี</label><br>
+          <label><input type="radio" name="q2" value="d"> สหภาพโซเวียต</label>        
+        </div>
+
+        <div class="border-l-4 border-red-700 pl-4">
+          <p class="font-semibold">3: ใครเป็นผู้นำเยอรมนีในช่วงสงครามโลกครั้งที่ 2?</p>
+          <label><input type="radio" name="q3" value="a"> วินสตัน เชอร์ชิลล์</label><br>
+          <label><input type="radio" name="q3" value="b"> แฟรงคลิน รูสเวลต์</label><br>
+          <label><input type="radio" name="q3" value="c"> อดอล์ฟ ฮิตเลอร์</label><br>
+          <label><input type="radio" name="q3" value="d"> โจเซฟ สตาลิน</label>        
+        </div>
+
+        <div class="border-l-4 border-red-700 pl-4">
+          <p class="font-semibold">4: เหตุการณ์ใดทำให้สหรัฐเข้าร่วมสงครามโลกครั้งที่ 2?</p>
+          <label><input type="radio" name="q4" value="a"> การบุกโปแลนด์</label><br>
+          <label><input type="radio" name="q4" value="b"> การทิ้งระเบิดฮิโรชิมา</label><br>
+          <label><input type="radio" name="q4" value="c"> การโจมตีเพิร์ลฮาร์เบอร์</label><br>
+          <label><input type="radio" name="q4" value="d"> การยึดฝรั่งเศส</label>         
+        </div>
+
+        <div class="border-l-4 border-red-700 pl-4">
+          <p class="font-semibold">5: การยอมแพ้ของญี่ปุ่นเกิดขึ้นเมื่อปีใด?</p>
+          <label><input type="radio" name="q5" value="a"> 1944</label><br>
+          <label><input type="radio" name="q5" value="b"> 1945</label><br>
+          <label><input type="radio" name="q5" value="c"> 1946</label><br>
+          <label><input type="radio" name="q5" value="d"> 1947</label>         
+        </div>
+
+        <button type="button" onclick="checkAnswers()" 
+          class="bg-red-900 text-white px-6 py-2 rounded-lg shadow hover:bg-red-700">
+          ตรวจคำตอบ
+        </button>
+      </form>
+
+      <div id="result" class="mt-6 text-xl font-bold text-center"></div>
+    </main>
+
+    <script>
+      function checkAnswers() {
+        const answers = { q1: "b", q2: "c", q3: "c", q4: "c", q5: "b" };
+        let score = 0;
+        for (let q in answers) {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (selected && selected.value === answers[q]) {
+            score++;
+          }
+        }
+        document.getElementById("result").innerText = `คุณได้คะแนน ${score}/5`;
+      }
+    </script>
+  </body>
+</html>
